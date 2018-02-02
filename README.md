@@ -1,4 +1,4 @@
-# Monitore Azure AD
+# Monitor Azure AD
 
 We define two environmental variables:
 * AZURE_AD_USER
