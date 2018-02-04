@@ -46,3 +46,26 @@ type GetCompanyInformationResult struct {
 type GetCompanyInformationReturnValue struct {
 	LastDirSyncTime time.Time `xml:"LastDirSyncTime"`
 }
+
+type HasObjectsWithDirSyncProvisioningErrors struct {
+	DataBlob       string
+	BearerToken    string
+	TrackingHeader string
+	MessageID      string
+}
+
+type HasObjectsWithDirSyncProvisioningErrorsEnvelope struct {
+	Body HasObjectsWithDirSyncProvisioningErrorsBody `xml:"Body"`
+}
+
+type HasObjectsWithDirSyncProvisioningErrorsBody struct {
+	Response HasObjectsWithDirSyncProvisioningErrorsResponse `xml:"HasObjectsWithDirSyncProvisioningErrorsResponse"`
+}
+
+type HasObjectsWithDirSyncProvisioningErrorsResponse struct {
+	Result HasObjectsWithDirSyncProvisioningErrorsResult `xml:"HasObjectsWithDirSyncProvisioningErrorsResult"`
+}
+
+type HasObjectsWithDirSyncProvisioningErrorsResult struct {
+	ReturnValue bool `xml:"ReturnValue"`
+}

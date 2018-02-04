@@ -58,6 +58,12 @@ func main() {
 			} else {
 				log.Logger.Printf("%+v", datum)
 			}
+
+			if datum, err := soapGet.HasObjectsWithDirSyncProvisioningErrors(token, dataBlob); err != nil {
+				log.Logger.Panicln(err)
+			} else {
+				log.Logger.Printf("%+v", datum)
+			}
 		}
 	}
 }

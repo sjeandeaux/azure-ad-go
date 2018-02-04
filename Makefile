@@ -1,11 +1,11 @@
 run: ## run the application
-	go run -ldflags " \
+	@go run -ldflags " \
 	      -X github.com/sjeandeaux/azure-ad-go/information.Version=$(shell cat VERSION) \
 	      -X github.com/sjeandeaux/azure-ad-go/information.BuildTime=$(shell date +"%Y-%m-%dT%H:%M:%S") \
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitCommit=$(shell git rev-parse --short HEAD) \
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitDescribe=$(shell git describe --tags --always) \
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitDirty=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)" \
-				main.go -verbose
+				main.go
 
 
 help: ## this help
