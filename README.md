@@ -1,8 +1,10 @@
 # Monitor Azure AD
 
-We define two environmental variables:
-* AZURE_AD_USER
-* AZURE_AD_PASSWORD
+## Soap
+
+* GetCompanyInformation
+
+## ugly
 
 The steps:
 * GET https://login.microsoftonline.com to get canary, sctx and flowToken

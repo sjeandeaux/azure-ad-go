@@ -5,7 +5,7 @@ run: ## run the application
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitCommit=$(shell git rev-parse --short HEAD) \
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitDescribe=$(shell git describe --tags --always) \
 	      -X github.com/sjeandeaux/azure-ad-go/information.GitDirty=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)" \
-				main.go
+				main.go -verbose
 
 
 help: ## this help
