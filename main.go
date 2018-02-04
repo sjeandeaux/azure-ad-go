@@ -56,7 +56,7 @@ func main() {
 			if datum, err := soapGet.GetCompanyInformation(token, dataBlob); err != nil {
 				log.Logger.Panicln(err)
 			} else {
-				log.Logger.Println(datum)
+				log.Logger.Printf("%+v", datum)
 			}
 		}
 	}

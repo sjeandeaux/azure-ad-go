@@ -19,33 +19,6 @@ const (
 	applicationSoap        = "application/soap+xml"
 )
 
-type MsolConnect struct {
-	ClientId       string
-	BearerToken    string
-	TrackingHeader string
-	MessageID      string
-}
-type MsolConnectResponse struct {
-	Header *HeaderResponse `xml:"Header"`
-}
-
-type HeaderResponse struct {
-	BecContext *BecContextResponse `xml:"BecContext"`
-}
-
-type BecContextResponse struct {
-	DataBlob string `xml:"DataBlob"`
-}
-
-type GetCompanyInformationResponse struct {
-}
-type GetCompanyInformation struct {
-	DataBlob       string
-	BearerToken    string
-	TrackingHeader string
-	MessageID      string
-}
-
 //MonitoringAzureAD monitore Azure AD
 type MonitoringAzureAD struct {
 	verbose      bool
@@ -173,7 +146,7 @@ func (m *MonitoringAzureAD) MsolConnect(token string) (string, error) {
 		return "", err
 	}
 
-	connectResponse := &MsolConnectResponse{}
+	connectResponse := &MsolConnectEnvelope{}
 	if err = m.postSoap(reader, connectResponse); err != nil {
 		return "", err
 	}
@@ -200,7 +173,7 @@ func (m *MonitoringAzureAD) GetCompanyInformation(token, dataBlob string) (inter
 		return "", err
 	}
 
-	response := &GetCompanyInformationResponse{}
+	response := &GetCompanyInformationEnvelope{}
 	if err = m.postSoap(reader, response); err != nil {
 		return nil, err
 	}
