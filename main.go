@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/sjeandeaux/azure-ad-go/information"
 	"github.com/sjeandeaux/azure-ad-go/log"
@@ -31,7 +32,8 @@ func init() {
 	flag.StringVar(&commandLine.clientID, "clientID", os.Getenv("AZURE_AD_CLIENT_ID"), "The client ID")
 	flag.StringVar(&commandLine.tenantDomain, "tenantDomain", os.Getenv("AZURE_AD_TENANT_DOMAIN"), "Th tenant domain")
 	flag.StringVar(&commandLine.tenantID, "tenantID", os.Getenv("AZURE_AD_TENANT_ID"), "The tenant ID")
-	flag.BoolVar(&commandLine.verbose, "verbose", false, "verbose")
+	verbose, _ := strconv.ParseBool(os.Getenv("AZURE_AD_VERBOSE"))
+	flag.BoolVar(&commandLine.verbose, "verbose", verbose, "verbose")
 	flag.Parse()
 }
 
