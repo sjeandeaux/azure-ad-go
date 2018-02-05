@@ -15,3 +15,4 @@ The steps:
 
 References:
 * https://gist.github.com/dlundgren/f4778c235eabd6467d6c5a9f727f9a7c
+* https://github.com/outsideopen/nagios-plugins
